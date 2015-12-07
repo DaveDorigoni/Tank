@@ -13,3 +13,14 @@ Sul PC viene visualizzato il serbatoio con il livello di fluido in real time. In
 Arduino, oltre a mandare costantemente il livello al computer, riceve il comado di valvola aperta o chiusa; quando è a aperta fa entrare nuova acqua mentre quando è chiusa ne blocca il flusso.
 
 ###COLLEGAMENTI: 
+
+###FLOWCHART:
+
+##CODICE PROCESSING:
+
+###Class Tank:
+
+###Comunicazione Seriale
+
+##CODICE ARDUINO:
+
