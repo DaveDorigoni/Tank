@@ -14,11 +14,11 @@ Arduino, oltre a mandare costantemente il livello al computer, riceve il comado 
 
 ###COLLEGAMENTI:
 
-![Alt text](https://github.com/DaveDorigoni/Tank/Tank/collegamentiSerbatoio.png?raw=ture) 
+![Alt text](https://github.com/DaveDorigoni/Tank/blob/master/Tank/collegamentiSerbatoio.png?raw=ture) 
 
 ###FLOWCHART:
 
-![Alt text](https://github.com/DaveDorigoni Tank/Tank/TankFlowChart.png?raw=true)
+![Alt text](https://github.com/DaveDorigoni/Tank/blob/master/Tank/TankFlowChart.png?raw=true)
 
 ##CODICE PROCESSING:
 
