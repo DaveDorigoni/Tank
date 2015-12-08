@@ -12,9 +12,13 @@ La commessa è suddivisa in due parti: il programma su computer, scritto con *pr
 Sul PC viene visualizzato il serbatoio con il livello di fluido in real time. Inoltre è possibile muovere il limite tramite uso del mouse.
 Arduino, oltre a mandare costantemente il livello al computer, riceve il comado di valvola aperta o chiusa; quando è a aperta fa entrare nuova acqua mentre quando è chiusa ne blocca il flusso.
 
-###COLLEGAMENTI: 
+###COLLEGAMENTI:
+
+![Alt text](https://github.com/DaveDorigoni/Tank/Tank/collegamentiSerbatoio.png?raw=ture) 
 
 ###FLOWCHART:
+
+![Alt text](https://github.com/DaveDorigoni Tank/Tank/TankFlowChart.png?raw=true)
 
 ##CODICE PROCESSING:
 
@@ -23,4 +27,3 @@ Arduino, oltre a mandare costantemente il livello al computer, riceve il comado 
 ###Comunicazione Seriale
 
 ##CODICE ARDUINO:
-
