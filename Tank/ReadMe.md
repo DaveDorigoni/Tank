@@ -131,7 +131,82 @@ disegna il liquido contenuto con altezza che dipende dal valore (level_) inserit
 ``` 
 Apre la valvola se il liquido è inferiore alla soglia, e la chiude in caso contrario. Nel primo caso la valvola cambia colore in verde, nel secondo in rosso. Inoltre viene inviato tramite seriale '1', in caso di apertura e '0' nel caso di chiusura.
 
+##Funzione setup:
 
-###Comunicazione Seriale
+```java
+import processing.serial.*;    //  Load serial library
+
+Tank tank;
+Serial port;
+
+void setup(){
+  size(800,500);
+  tank = new Tank(100, 100, 50); //(x starting point, y starting point, size)
+  port = new Serial(this, "COM4", 9600);
+}
+``` 
+
+Vengono inizializzati due oggetti, uno di tipo Serial (necessario per la comunicazione seriale) e uno di tipo Tank.
+
+##Funzione draw:
+
+```
+void draw(){
+  background(255);
+  tank.water(tankLevel); //draws the water
+  tank.generateTank(); //draws the tank
+  tank.threshold(); //draws the threshold
+  tank.valve(); //rappresents the valve
+}
+```
+Nella funzione draw vengono usate le funzioni della classe Tank.
+
+
+###Comunicazione Seriale:
+``` java
+void serialEvent(Serial p){
+  String message=p.readStringUntil(13);
+  if(message!=null){
+    try{
+        String[]elements=splitTokens(message);
+        tankLevel = int(elements[0]); //value incoming of the height of the water
+    }
+    catch(Exception e){
+    }
+  }
+}
+``` 
+
 
 ##CODICE ARDUINO:
+
+```c++
+#define V1 5 //flow in valve
+#define L1 0 //level of water
+#define SERIAL_BAUD 9600
+
+float waterLevel = 0;
+int valveState = 0;
+
+void setup() {
+  pinMode(V1, OUTPUT);
+  pinMode(L1, INPUT);
+  Serial.begin(SERIAL_BAUD);
+}
+
+void loop() {
+  waterLevel = (int)(analogRead(L1) * 100.0 / 1024.0);
+  Serial.println(waterLevel); //sends the height of the water in the tank to the PC
+  if(Serial.available()) {  
+    valveState = Serial.read(); //value from the PC, it could be 0 or 1
+  }
+  if(valveState == 0){ //turn off the valve
+    digitalWrite(V1, LOW);
+  }
+  else if(valveState == 1){ //turn on the valve
+    digitalWrite(V1, HIGH);
+  }
+}
+```
+
+Vengono inizializzati *L1* e *V1*, sensore di livello e valvola. Nella funzione *loop()* vengono ricevuti e mandati i dati dal computer e in base al valore che riceve, accende o spegne la valvola, simulata da un LED.

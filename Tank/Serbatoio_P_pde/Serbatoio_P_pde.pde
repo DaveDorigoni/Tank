@@ -116,13 +116,13 @@ void draw(){
 ///////////////////////////////////////////////////////////////////////////////////
 
 void serialEvent(Serial p){
-String message=p.readStringUntil(13);
-if(message!=null){
-  try{
-      String[]elements=splitTokens(message);
-      tankLevel = int(elements[0]); //value incoming of the height of the water
+  String message=p.readStringUntil(13);
+  if(message!=null){
+    try{
+        String[]elements=splitTokens(message);
+        tankLevel = int(elements[0]); //value incoming of the height of the water
+    }
+    catch(Exception e){
+    }
   }
-  catch(Exception e){
-  }
-}
 }
